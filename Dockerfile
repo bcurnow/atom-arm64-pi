@@ -17,7 +17,7 @@ RUN if [ ${USER_ID:-0} -ne 0 ] && [ ${GROUP_ID:-0} -ne 0 ]; then \
 
 WORKDIR /opt/atom/build
 
-COPY electron-mksnapshot-9.0.2-linux-arm64.tar.gz .
+#COPY electron-mksnapshot-9.0.2-linux-arm64.tar.gz .
 
 RUN apt-get update && \
     apt-get -y upgrade && \
@@ -32,8 +32,8 @@ RUN apt-get update && \
     git clone https://github.com/atom/atom.git && \
     cd atom && \
     git checkout tags/${ATOM_VERSION} && \
-    tar xfz ../electron-mksnapshot-9.0.2-linux-arm64.tar.gz -C script && \
-    rm ../electron-mksnapshot-9.0.2-linux-arm64.tar.gz && \
+#    tar xfz ../electron-mksnapshot-9.0.2-linux-arm64.tar.gz -C script && \
+#    rm ../electron-mksnapshot-9.0.2-linux-arm64.tar.gz && \
     chown -R atom:atom /opt/atom/build && \
     rm -rf /var/lib/apt/lists/*
 
